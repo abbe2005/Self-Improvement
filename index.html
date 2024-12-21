@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en" style="scroll-behavior: smooth;">
+
+
+<!--
+
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣠⣴⣶⣦⣄⣀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣂⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣼⣿⣿⣿⣿⣿⣿⣿⣷⡄⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣯⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠾⢿⣉⣀⡀⠀⠈⢿⣿⣿⣷⣄⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣠⣰⢸⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡟⢹⢿⣿⡷⠄⢿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣾⣾⣿⣿⣿⡥⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣿⣗⠢⣄⣤⣠⣘⣿⣿⣿⣿⠃⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⣿⣿⣾⡧⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣟⣿⣿⣷⣼⣿⣾⣿⣜⢳⣽⠟⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣿⣿⣿⣿⣷⣶⣾⣺⣶⣧⣦⣄⠀⠀⠀⠀⢯⣿⣿⣿⣿⣿⣿⣿⣿⠏⡿⠃⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⢀⣶⣿⣿⣿⣿⣿⣿⣿⣿⣧⣿⣿⣿⣶⣯⣕⣤⣤⢀⡈⠛⠿⠿⢿⣿⣿⣿⢣⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⢠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣥⣿⢹⣧⢠⣤⢠⠙⢻⣼⡇⠀⣵⣧⣦⣤⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⣠⣴⣿⣿⣿⢿⡿⢿⣞⠷⠻⣷⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣤⣽⣯⠤⠐⠐⢰⠀⠈⠓⢾⢯⣽⣾⣷⣲⣎⠀⠀⠀
+⠀⠀⢀⣤⣾⣿⣿⣿⣿⢰⣴⡆⣿⠇⠦⢾⣇⠲⣶⡇⣶⣼⡇⣿⣿⣿⣿⣿⡏⢼⣿⡙⠻⢿⣿⣷⣦⣤⣌⠙⠛⠿⠛⣟⠃⠀⡀
+⣠⣴⢿⣿⣿⣿⣿⣿⢠⣿⣿⡆⣿⣨⣭⠽⠻⢓⣼⡷⢸⣿⢸⣿⣿⣿⣿⣇⠻⢿⣿⡿⣿⡢⡙⠿⣿⣿⣭⣬⣂⠄⠀⢸⣭⠢⠁
+⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣿⣶⣶⣿⣿⣿⣿⣾⣿⣷⣿⣿⣿⣿⣿⣿⣿⢃⢾⣷⡿⣿⢿⣵⣌⠻⢿⣿⣿⣿⣴⠀⠈⠃⠀
+⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠉⠉⠉⢉⣿⠟⠉⣉⠘⣿⣿⣿⣿⣿⣿⣿⡖⣸⣿⣿⣿⣯⣿⣿⣶⡘⢿⣿⣿⣿⣿⣦⠀⠀
+⠈⢿⣿⠿⠟⠛⣿⣿⣿⣿⣿⣿⣿⣿⠁⠀⣸⠋⢠⣾⣿⠀⣹⣿⣿⣿⣿⣿⡿⢰⣿⣿⣿⣷⣿⣿⣿⣿⣿⣶⣬⣭⠙⠛⠀⠀⠄
+⠀⠀⠀⠀⠀⠀⣿⣿⣿⣿⣿⣿⣿⣿⠇⢠⡾⠀⣸⣿⡿⠀⢰⣿⣿⣿⣿⣿⡿⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣻⣿⣧⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⣿⣿⣿⣿⣿⣿⣿⣿⠀⣾⡇⠀⣿⣿⣗⠀⢸⣿⣿⣿⣿⡟⣰⣿⣿⣿⣿⣿⣿⣿⣿⣿⣟⣷⣶⣻⣿⠊⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⣾⣿⣿⣿⣿⣿⣿⡟⠀⣹⡀⠀⣿⣿⠇⢀⣿⣿⣿⣿⡿⢰⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣭⣛⣛⣻⡿⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⣿⣿⣿⣿⣿⣿⣿⡇⢀⣿⡇⢸⣿⡿⢀⣾⣿⣿⣿⣿⢰⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣳⢯⣟⣭⠱⠃⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⣿⣿⣿⣿⣿⣿⣿⠁⢸⣿⡗⠘⠟⢀⣸⣿⣿⣿⣿⠇⣾⣿⣿⣿⡿⣿⣿⣿⣿⣿⣿⣿⣿⡽⠭⠇⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⢰⣿⣿⣿⣿⣿⣿⣷⣬⣿⣿⣷⣼⣴⣾⣿⣿⣿⣿⡿⢸⣿⣿⣿⣿⡿⣿⣿⣿⣿⣿⣿⣿⣿⣽⣿⡀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⢃⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠯⠶⠜⡀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⣿⣿⣿⣿⣿⡿⣯⣭⣿⣿⡿⢯⣿⣿⡿⣿⣿⣿⣿⢸⣿⣿⣿⣿⣟⣿⣿⣿⣿⣿⣿⣿⣿⣿⣻⣭⢇⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⣸⣿⣿⣿⣿⣿⣿⣿⣷⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡟⣍⣳⡀⠀⠀⠀⠀
+⠀⠀⠀⢠⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⢡⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣻⢿⣿⣧⠀⠀⠀⠀
+⠀⠀⠀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣾⣾⠆⠀⠀⠀
+⠀⠀⢰⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⣏⠀⠀⠀
+⠀⠀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⢰⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣽⣿⠀⠀⠀
+⠀⠀⠉⠛⠛⠿⠿⠿⠿⠿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⢸⣍⣉⣉⣤⣌⣉⣉⣉⠩⠙⠛⠛⠛⠛⣛⣛⣛⣛⣉⣀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠉⠉⠉⠉⠉⠙⠛⢛⣸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣻⣿⣿⡇⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠀⠀⠀⠀⠁⠄⠀⠀⠀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⢡⣿⣿⣿⣿⣿⣿⣻⣿⣿⡇⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢫⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇⣿⣿⣿⣿⣿⣿⣽⣿⣿⡇⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣶⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⢸⣿⣿⣿⣿⣿⣿⣞⣿⣿⡇⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣷⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⢸⣿⣿⣿⣿⣿⣿⣯⣿⣿⡇⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⢸⣿⣿⣿⣿⣿⣿⣏⣿⣿⡇⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇⣾⣿⣿⣿⣿⣭⣭⣾⢸⣿⡔⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠾⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇⣉⠻⣿⣿⣿⣿⣿⣯⣹⣿⡷⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣹⣿⣿⣿⣿⣿⣿⠃⠀⠀⠀⠀⠀⢲⣿⣿⣿⣿⠿⢋⠉⠁⠄
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⢿⣿⣿⣿⣿⣿⡟⡅⠀⠀⠀⠀⠀⠘⣿⣿⣿⣿⡼⣗⣷⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⣿⣿⣿⣿⣿⣷⡇⠀⠀⠀⠀⠀⠀⠸⣿⣿⣿⣿⣿⣾⡀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⣿⣿⣿⣿⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⢹⣿⣿⣿⣿⣷⡆⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠠⢠⣿⣿⣿⣿⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠨⣿⣿⣿⣿⣿⣷⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⣿⣿⣿⣿⣿⠇⠀⠀⠀⠀⠀⠀⠀⠐⣿⣿⣿⣿⣿⣾⡀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⢸⣿⣿⣿⣿⣿⡿⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣿⣿⣿⣿⣿⠇
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⣿⣿⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⣿⣿⣿⣿⠄
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠸⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⣿⣿⣿⣿⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⣿⣿⣿⣿⡿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣿⣿⣿⣿⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣿⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢻⣿⣿⣿⡟⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣄⣤⣿⣿⣿⣿⣇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢘⣿⣿⣿⠃⡀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣸⡿⢿⣿⣿⣿⣿⣻⣁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣾⣿⣿⣿⣧⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣠⠤⠶⡟⡙⣽⣿⣿⣿⣿⣿⣭⡩⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠸⡽⢾⡙⣿⡄
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⠻⠷⠻⠟⠟⠛⠋⠉⠁⠉⠈⠁⠁⠀⠆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠹⠛⣿⡗⣶⣿
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠻
+
+-->
+
+
+
+
+
+
+
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Self-Improvement Journey</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+
+
+
+
+
+
+
+
+
+<!--
+        .--'''''''''--.
+     .'      .---.      '.
+    /    .-----------.    \
+   /        .-----.        \
+   |       .-.   .-.       |
+   |      /   \ /   \      |
+    \    | .-. | .-. |    /
+     '-._| | | | | | |_.-'
+         | '-' | '-' |
+          \___/ \___/
+       _.-'  /   \  `-._
+     .' _.--|     |--._ '.
+     ' _...-|     |-..._ '
+            |     |
+            '.___.'
+-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<body>
+    <nav class="nav">
+        <div class="nav-logo">
+            <i class="fas fa-seedling" id="home-link" style="cursor: pointer;"></i>
+        </div>
+        <div class="nav-links">
+            <a href="#apps" id="apps-link">Apps</a>
+            <a href="#guide" id="guide-link">Guide</a>
+            <a href="#contact" id="contact-link">Contact</a>
+            <a href="#login" id="login-link">Login</a>
+        </div>
+    </nav>
+
+    <!-- Home Page -->
+    <main class="hero page active" id="home-page">
+        <section class="hero-left">
+            <h1 class="hero-title">Transform Your Life</h1>
+            <p class="hero-subtitle">Your journey to self-improvement starts here</p>
+            <div class="feature-image">
+                <i class="fas fa-brain"></i>
+            </div>
+            <div class="pagination">
+                <div class="dot active" data-icon="fas fa-brain "></div>
+                <div class="dot" data-icon="fas fa-heart"></div>
+                <div class="dot" data-icon="fas fa-lightbulb"></div>
+                <div class="dot" data-icon="fas fa-tree"></div>
+            </div>
+        </section>
+        
+        <section class="hero-right">
+            <div class="features">
+                <p>Discover a comprehensive toolkit for personal growth:</p>
+                <br>
+                <p>• Mindfulness and meditation techniques</p>
+                <p>• Goal setting and tracking</p>
+                <p>• Fitness and wellness planning</p>
+                <p>• Personal development resources</p>
+            </div>
+            <a href="#start" class="button">Start Your Journey</a>
+        </section>
+    </main>
+
+
+
+
+
+
+
+
+
+<!--
+      .--..--..--..--..--..--.
+    .' \  (`._   (_)     _   \
+  .'    |  '._)         (_)  |
+  \ _.')\      .----..---.   /
+  |(_.'  |    /    .-\-.  \  |
+  \     0|    |   ( O| O) | o|
+   |  _  |  .--.____.'._.-.  |
+   \ (_) | o         -` .-`  |
+    |    \   |`-._ _ _ _ _\ /
+    \    |   |  `. |_||_|   |
+    | o  |    \_      \     |     -.   .-.
+    |.-.  \     `--..-'   O |     `.`-' .'
+  _.'  .' |     `-.-'      /-.__   ' .-'
+.' `-.` '.|='=.='=.='=.='=|._/_ `-'.'
+`-._  `.  |________/\_____|    `-.'
+   .'   ).| '=' '='\/ '=' |
+   `._.`  '---------------'
+           //___\   //___\
+             ||       ||
+             ||_.-.   ||_.-.
+            (_.--__) (_.--__)    
+-->
+
+
+
+
+
+
+
+
+    <!-- Login Page -->
+    <div class="login-page page" id="login-page">
+        <div class="login-container">
+            <div class="login-form">
+                <h2>Login to Your Journey</h2>
+                <form id="login-form">
+                    <input type="email" placeholder="Email" required>
+                    <input type="password" placeholder="Password" required>
+                    <button type="submit" class="button">Login</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Apps Page -->
+    <div class="apps-page page" id="apps-page">
+        <div class="apps-container">
+            <div class="app-grid">
+                <div class="app-card">
+                    <i class="fas fa-brain fa-3x"></i>
+                    <h3>Mindfulness App</h3>
+                    <p>Start your meditation journey</p>
+                    <a href="#" class="button">Download</a>
+                </div>
+                <div class="app-card">
+                    <i class="fas fa-tasks fa-3x"></i>
+                    <h3>Goal Tracker</h3>
+                    <p>Track your progress</p>
+                    <a href="#" class="button">Download</a>
+                </div>
+                <div class="app-card">
+                    <i class="fas fa-dumbbell fa-3x"></i>
+                    <h3>Fitness Planner</h3>
+                    <p>Plan your workouts</p>
+                    <a href="#" class="button">Download</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+<!--     
+                 _____________
+   |\_|/__/|    /             \
+  / / \/ \  \  / WORKED HARD TO\
+ /__|O||O|__ \ \  ACHIEVE THIS /
+|/_ \_/\_/ _\ | \  ___________/
+| | (____) | ||  |/
+\/\___/\__/  // _/
+(_/         ||             
+ |          ||\
+  \        //_/
+   \______//
+  __|| __||
+ (____(____)
+ -->
+
+
+
+
+    <!-- Guide Page -->
+    <div class="guide-page page" id="guide-page">
+        <div class="guide-container">
+            <div class="guide-content">
+                <h2>Your Self-Improvement Guide</h2>
+                <div class="guide-steps">
+                    <h3>1. Set Your Goals</h3>
+                    <p>Define clear, achievable goals for your personal growth.</p>
+                    
+                    <h3>2. Create a Routine</h3>
+                    <p>Establish daily habits that support your goals.</p>
+                    
+                    <h3>3. Track Progress</h3>
+                    <p>Monitor your journey and celebrate small wins.</p>
+                    
+                    <h3>4. Stay Motivated</h3>
+                    <p>Connect with like-minded individuals and stay inspired.</p>
+                    
+                    <!-- Additional content to demonstrate scrolling -->
+                    <h3>5. Continuous Learning</h3>
+                    <p>Invest in personal development resources and courses.</p>
+                    
+                    <h3>6. Mindful Reflection</h3>
+                    <p>Regularly assess your progress and adjust your strategies.</p>
+                    
+                    <h3>7. Holistic Approach</h3>
+                    <p>Balance mental, physical, and emotional well-being.</p>
+                    
+                    <h3>8. Community Support</h3>
+                    <p>Engage with supportive communities and mentors.</p>
+                    
+                    <h3>9. Embrace Challenges</h3>
+                    <p>View obstacles as opportunities for growth.</p>
+                    
+                    <h3>10. Celebrate Progress</h3>
+                    <p>Acknowledge and reward your achievements, no matter how small.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Page -->
+    <div class="contact-page page" id="contact-page">
+        <div class="contact-container">
+            <div class="modern-contact-wrapper">
+                <div class="contact-info">
+                    <h2>Get in Touch</h2>
+                    <p>Have a question or want to start your self-improvement journey? 
+                       We're here to help!</p>
+                    
+                    <div class="contact-details">
+                        <div class="contact-detail">
+                            <i class="fas fa-envelope"></i>
+                            <span>support@selfimprovement.com</span>
+                        </div>
+                        <div class="contact-detail">
+                            <i class="fas fa-phone"></i>
+                            <span>+1 (555) 123-4567</span>
+                        </div>
+                        <div class="contact-detail">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>123 Growth Street, Innovation City</span>
+                        </div>
+                    </div>
+    
+                    <div class="social-links">
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+    
+                <div class="contact-form-modern">
+                    <form id="modern-contact-form">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input 
+                                type="text" 
+                                id="name" 
+                                placeholder="Your Name" 
+                                required
+                            >
+                        </div>
+    
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input 
+                                type="email" 
+                                id="email" 
+                                placeholder="your@email.com" 
+                                required
+                            >
+                        </div>
+    
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <select id="subject" required>
+                                <option value="">Select a Subject</option>
+                                <option value="support">Customer Support</option>
+                                <option value="feedback">Feedback</option>
+                                <option value="partnership">Partnership</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+    
+                        <div class="form-group">
+                            <label for="message">Your Message</label>
+                            <textarea 
+                                id="message" 
+                                placeholder="Write your message here..." 
+                                required
+                            ></textarea>
+                        </div>
+    
+                        <div class="form-group checkbox-group">
+                            <input type="checkbox" id="newsletter" name="newsletter">
+                            <label for="newsletter">Subscribe to our newsletter</label>
+                        </div>
+    
+                        <button type="submit" class="submit-button">
+                            Send Message
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+<!--
+         _          __________                              _,
+     _.-(_)._     ."          ".      .--""--.          _.-{__}-._
+   .'________'.   | .--------. |    .'        '.      .:-'`____`'-:.
+  [____________] /` |________| `\  /   .'``'.   \    /_.-"`_  _`"-._\
+  /  / .\/. \  \|  / / .\/. \ \  ||  .'/.\/.\'.  |  /`   / .\/. \   `\
+  |  \__/\__/  |\_/  \__/\__/  \_/|  : |_/\_| ;  |  |    \__/\__/    |
+  \            /  \            /   \ '.\    /.' / .-\                /-.
+  /'._  --  _.'\  /'._  --  _.'\   /'. `'--'` .'\/   '._-.__--__.-_.'   \
+ /_   `""""`   _\/_   `""""`   _\ /_  `-./\.-'  _\'.    `""""""""`    .'`\
+(__/    '|    \ _)_|           |_)_/            \__)|        '       |   |
+  |_____'|_____|   \__________/   |              | `_________'________`;-'
+   '----------'    '----------'   '--------------'`--------------------`    
+-->
+
+
+
+
+
+
+
+    <script src="navigation.js"></script>
+</body>
+
+
+
+
+
+
+
+
+
+<!--
+             .-"""-.
+            /       \
+            \       /
+     .-"""-.-`.-.-.<  _
+    /      _,-\ O_O-_/ ) 
+    \     / ,  `   . `|
+     '-..-| \-.,__~ ~ /        
+           \ `-.__/  /         
+          / `-.__.-\`-._    ,",
+         / /|    ___\-._`-.;  , .----.  
+        ( ( |.-"`   `'\ '-(     -.---' 
+         \ \/    {}{}  |   \.__.-'
+          \|           /     
+           \        , /
+           ( __`;-;'__`)
+           `//'`   `||`
+          _//       ||
+  .-"-._,(__)     .(__).-""-.
+ /          \    /           \
+ \          /    \           /
+  `'-------`      `--------'`
+-->
+
+
+
+
+
+
+
+</html>

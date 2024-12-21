@@ -1,0 +1,511 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+
+
+body {
+    background: #e77c8e;
+    color: white;
+    
+    min-height: 100vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+/* Hide scrollbar for all browsers */
+html {
+    scroll-behavior: smooth;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* Internet Explorer and Edge */
+}
+
+::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, and Opera */
+}
+
+
+/* Navigation Styles */
+.nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000; /* Increased z-index to ensure it's always on top */
+    background: rgba(0, 0, 0, 0.067);
+    backdrop-filter: blur(10px);
+}
+
+.nav-logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.nav-logo:hover {
+    transform: scale(1.1);
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav a {
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.8rem;
+    transition: opacity 0.3s;
+    padding: 0.5rem; /* Adjust padding for links */
+    margin: 0; /* Remove margin if any */
+}
+
+.nav a:hover {
+    opacity: 0.8;
+}
+
+/* Hero Section Styles */
+.hero {
+    height: 100vh;
+    display: flex; /* Change from grid to flex */
+    flex-direction: row; /* Align items in a row */
+}
+
+.hero-left {
+    background: #e77c8e;
+    padding: 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; /* Align text to the start */
+    text-align: center; /* Align text to the left */
+    flex: 1; /* Allow this section to take up available space */
+}
+
+.hero-right {
+    background: #29b7dd;
+    padding: 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: right;
+    align-items: center; /* Center the icon */
+    flex: 1; /* Allow this section to take up available space */
+}
+
+
+.hero-title {
+    font-size: 3.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.hero-subtitle {
+    font-size: 1.5rem;
+    opacity: 0.9;
+    margin-bottom: 2rem;
+}
+
+/* Smooth Scroll Container */
+html {
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    scrollbar-color: rgba(255, 255, 255, 0) transparent;
+    scrollbar-shadow-color: rgba(0, 0, 0, 0.074)
+}
+
+/* Feature Image */
+.feature-image {
+    width: 400px; /* Adjust as needed */
+    height: 400px; /* Adjust as needed */
+    background: white; /* Original background */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 5rem;
+    color: #e77c8e;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    animation: float 3s ease-in-out infinite;
+    transition: background 0.3s, transform 0.3s; /* Add transition for smooth effect */
+}
+
+.feature-image:hover {
+    background: rgba(255, 255, 255, 0.8); /* Change background on hover */
+    transform: scale(1.05); /* Slightly enlarge on hover */
+    cursor: pointer; /* Change cursor to pointer */
+}
+.feature-image i {
+    cursor: pointer; /* Change cursor to pointer when hovering */
+}
+
+/* Pagination Dots */
+.pagination {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 2rem;
+    justify-content: center;
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    background: rgba(255,255,255,0.5);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.dot.active {
+    background: white;
+}
+
+/* Features Section */
+.features {
+    margin: 2rem 0;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    padding: 2rem; /* Add padding for better spacing */
+}
+/* Page Styles - Adjust for fixed navigation */
+.page {
+    display: none;
+    min-height: 100vh;
+    padding-top: 100px; /* Increased padding to account for fixed nav */
+    overflow-y: auto;
+    position: relative;
+    scroll-behavior: smooth;
+}
+
+.page.active {
+    display: block;
+}
+
+/* Login and Contact Forms */
+.login-form {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    max-width: 400px;
+    margin: 2rem auto;
+    color: #333;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.login-form h2 {
+    margin-bottom: 1.5rem;
+    color: #333;
+    text-align: center;
+}
+
+.login-form input,
+.login-form textarea {
+    width: 100%;
+    padding: 0.8rem;
+    margin: 0.5rem 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+/* Apps Grid */
+.app-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.app-card {
+    background: white;
+    border-radius: 10px;
+    padding: 2rem;
+    color: #333;
+    text-align: center;
+    transition: transform 0.3s;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.app-card:hover {
+    transform: translateY(-5px);
+}
+
+.app-card h3 {
+    margin: 1rem 0;
+    color: #333;
+}
+
+.app-card i {
+    color: #29b7dd;
+    margin-bottom: 1rem;
+}
+
+/* Guide Content */
+.guide-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+    background: white;
+    color: #333;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.guide-content h2 {
+    margin-bottom: 2rem;
+    text-align: center;
+    color: #333;
+}
+
+.guide-steps h3 {
+    margin: 1.5rem 0 0.5rem 0;
+    color: #e77c8e;
+}
+
+/* Buttons */
+.button {
+    background: white;
+    color: #e77c8e;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    border: none;
+    cursor: pointer;
+    display: inline-block;
+    margin-top: 1rem;
+}
+
+.button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+/* Enhanced Scrollable Sections */
+.guide-page,
+.apps-page,
+.login-page,
+.contact-page {
+    display: none;
+    min-height: 100vh;
+    padding-top: 100px;
+    padding-bottom: 50px; /* Add bottom padding */
+    overflow-y: auto; /* Enable vertical scrolling */
+    position: relative;
+    scroll-behavior: smooth;
+}
+
+.guide-page.active,
+.apps-page.active,
+.login-page.active,
+.contact-page.active {
+    display: block;
+}
+
+/* Ensure content within these pages can scroll */
+.guide-content,
+.apps-container,
+.login-container,
+.contact-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    overflow-y: auto; /* Additional scrolling for content */
+    max-height: calc(100vh - 120px); /* Adjust height */
+}
+
+
+
+/* Responsive Adjustments */
+
+
+    .modern-contact-wrapper {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+        background: white;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+        max-width: 1100px;
+        margin: 2rem auto;
+    }
+
+    .contact-info {
+        background: #e77c8e;
+        color: white;
+        padding: 3rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .contact-info h2 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .contact-details {
+        margin: 2rem 0;
+    }
+
+    .contact-detail {
+        display: flex;
+        align-items: center;
+        margin-bottom: 1rem;
+    }
+
+    .contact-detail i {
+        margin-right: 1rem;
+        font-size: 1.2rem;
+    }
+
+    .social-links {
+        display: flex;
+        gap: 1rem;
+    }
+
+    .social-icon {
+        color: white;
+        font-size: 1.5rem;
+        transition: transform 0.3s;
+    }
+
+    .social-icon:hover {
+        transform: scale(1.2);
+    }
+
+    .contact-form-modern {
+        padding: 3rem;
+        background: #f9f9f9;
+    }
+
+    .form-group {
+        margin-bottom: 1.5rem;
+    }
+
+    .form-group label {
+        display: block;
+        margin-bottom: 0.5rem;
+        color: #333;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        width: 100%;
+        padding: 0.8rem;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        transition: border-color 0.3s;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+        outline: none;
+        border-color: #e77c8e;
+    }
+
+    .checkbox-group {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .submit-button {
+        width: 100%;
+        padding: 1rem;
+        background: #e77c8e;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 0.5rem;
+        transition: background 0.3s;
+    }
+
+    .submit-button:hover {
+        background: #d3566e;
+    }
+
+    @media (max-width: 768px) {
+        .modern-contact-wrapper {
+            grid-template-columns: 1fr;
+        }
+    }
+
+/* Animations */
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+    100% { transform: translateY(0px); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero {
+        grid-template-columns: 1fr;
+    }
+    
+    .hero-left, .hero-right {
+        padding: 2rem;
+    }
+    
+    .feature-image {
+        width: 300px;
+        height: 300px;
+        font-size: 4rem;
+    }
+    
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .nav {
+        padding: 1rem;
+    }
+    
+    .nav-links {
+        gap: 1rem;
+    }
+    
+    .nav a {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .feature-image {
+        width: 200px;
+        height: 200px;
+        font-size: 3rem;
+    }
+    
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.2rem;
+    }
+}
